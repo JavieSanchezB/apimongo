@@ -1,9 +1,11 @@
 const { MongoClient } = require('mongodb');
 // or as an es module:
 // import { MongoClient } from 'mongodb'
+require("dotenv").config();
+const URI = process.env.URL_API_MONGO;
 
 // Connection URL
-const url = "URL";
+const url = URI;
 const client = new MongoClient(url);
 
 // Database Name
@@ -17,7 +19,7 @@ async function main() {
   const collection = db.collection('usuarios');
 
 
-const insertResult = await collection.insertMany([{ id: 1, nombres:"Jose" ,apellidos:"Mejia Bolaños" }, { id: 2 }, { id: 3 }]);
+const insertResult = await collection.insertMany([{ id: 1, nombres:"Jose" ,apellidos:"Mejia Bolaños", Rol:"Contador" }, { id: 2, nombres:"Fabian" ,apellidos:"Jimenez", Rol:"Administrador" }, { id: 3, nombres:"Fabian" ,apellidos:"Jimenez", Rol:"Caja"}]);
 console.log('Inserted documents =>', insertResult);
 
   // the following code examples can be pasted here...

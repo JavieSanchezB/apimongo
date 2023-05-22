@@ -1,7 +1,9 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
+require("dotenv").config();
+const URI = process.env.URL_API_MONGO;
 
 // Replace the placeholder with your Atlas connection string
-const uri = "URL";
+const uri = URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri,  {
